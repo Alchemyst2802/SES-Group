@@ -1,0 +1,16 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block head_title %}Registeration{% endblock %}
+
+{% block content %}
+<div class="col-sm-6 col-sm-offset-3">
+<h1> Resister Nows </h1>
+<form method="post" action=".">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input class='btn btn-primary' type="submit" value="{% trans 'Submit' %}" />
+</form>
+</div>
+{% endblock %}
+

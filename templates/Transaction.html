@@ -1,0 +1,51 @@
+{% extends "base2.html" %}
+{% block head_title %}Group Overview{% endblock %}
+
+{% block content %}
+{% load humanize %}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="{% url 'GroupProfile' %}">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Detail Group Member</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="{% url 'BeginToTrade' %}">Begin To Trade</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="{% url 'ShowTransactions' %}">Show All Transactions</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+         <h2 class="sub-header">All Transactions</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Transaction Type</th>
+                  <th>Asset Name</th>
+                  <th>Buy At Price</th>
+                  <th>Current Price</th>
+                  <th>Volume</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%for item in array%}
+                    <tr>
+                    {%for k in item%}                    
+                        <td>{{k}}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block head_title %}Wellcome{% endblock %}
+{% block content %}
+<div class="inner cover">
+    <h1 class="cover-heading">Learning To Be Rich</h1>
+    <p class="lead">This is a competetion of Mathematics Department</p>
+    <p class="lead">
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'GroupProfile' %}" class="btn btn-lg btn-default">Let Begin</a>
+    {% else %}
+        <a href="{% url 'auth_login' %}" class="btn btn-lg btn-default" >Login</a>
+    {% endif %}
+    </p>
+</div>
+{% endblock %}

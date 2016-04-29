@@ -1,0 +1,19 @@
+{% load i18n %}
+{% blocktrans with site_name=site.name %}
+You (or someone pretending to be you) have asked to register an account at
+{{ site_name }}.  If this wasn't you, please ignore this email
+and your address will be removed from our records.
+{% endblocktrans %}
+{% blocktrans %}
+To activate this account, please click the following link within the next
+{{ expiration_days }} days:
+{% endblocktrans %}
+
+http://{{site.domain}}{% url 'registration_activate' activation_key %}
+http://127.0.0.1:8000/accounts/activate/7513723991a09b2deeb2a33e2d4b7fe1d5492320
+{% blocktrans with site_name=site.name %}
+Sincerely,
+{{ site_name }} Management
+{% endblocktrans %}
+
+

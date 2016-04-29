@@ -1,0 +1,76 @@
+{% extends "base2.html" %}
+{% block head_title %}Group Overview{% endblock %}
+
+{% block content %}
+{% load humanize %}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Detail Group Member</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="{% url 'BeginToTrade' %}">Begin To Trade</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="{% url 'ShowTransactions' %}">Show All Transactions</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Dashboard</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Richest Group</h4>
+              <span class="text-muted">Group Name</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4> 2nd Richest Group</h4>
+              <span class="text-muted">Group Name</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>3rd Richest Group</h4>
+              <span class="text-muted">Group Name</span>
+            </div>
+          </div>
+
+          <h2 class="sub-header">My Group Asset</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Asset Name</th>
+                  <th>Volume</th>
+                  <th>Current Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td>Cash (VND)</td>
+                    <td>{{Cash|intword}}</td>
+                    <td>{{Cash|intword}}</td>
+
+
+                </tr>
+                {%for item in Array%}
+                    <tr>
+                    {%for k in item%}                    
+                        <td>{{k}}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
