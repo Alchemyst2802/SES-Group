@@ -68,7 +68,7 @@ class Stock(models.Model):
     def Get_data(self):
         time = str(timezone.now())[11:16]
         prices = Data[Data['Ticker']==self.StockName][Data['Date']<time]["Close"].tolist()
-        l =[['Days', 'Sales']]
+        l =[['Days', 'Stock Price']]
         i=0
         for price in prices:
             i+=1
